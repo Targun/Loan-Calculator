@@ -1,0 +1,58 @@
+<!doctype html>
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body ng-app="LoanCalculator" ng-controller="mainCtrl">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-6">
+        <h2>Loan Calculator</h2>
+        <div class="callout">
+          <h3>Important Information</h3>
+          Note: This interest rate may fluctuate <strong>a lot.</strong> We have built a sophisticated algorithm that pulls current economic situation, volatility of markets, global news, and inflation compared to the price of the McDouble. 
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-6">
+        <h3>Current Interest Rate:</h3>
+        <h4 class="text-primary">{{interest_rate}}%</h4>
+        <hr>
+      </div>
+    </div>
+    <div class="loan-calculator">
+      <div class="row">
+        <div class="col-sm-2">
+          <strong>Loan amount:</strong>
+        </div>
+        <div class="col-sm-4">
+          $<input type="text" class="form-control" ng-model="principal" />
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-2">
+          <p><strong>Loan term:</strong></p>
+          <br>
+          <button class="btn btn-success" ng-click="calculatePayment()">Calculate</button>
+        </div>
+        <div class="col-sm-4">
+          48 months
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-6">
+        <hr>
+        <h4>My Monthly Payment is:</h4>
+        <h4 class="text-info"><strong>${{monthly_payment}}</strong></h4>
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.20/angular.js"></script>
+  <script type="text/javascript" src="scripts/app.js"></script>
+  <script type="text/javascript" src="scripts/controllers/mainCtrl.js"></script>
+  <script type="text/javascript" src="scripts/services/bankService.js"></script>
+</body>
+</html>
